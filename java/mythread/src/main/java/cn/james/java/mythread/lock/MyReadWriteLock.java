@@ -1,4 +1,4 @@
-package cn.james.java.mythread;
+package cn.james.java.mythread.lock;
 
 import java.util.ArrayList;
 import java.util.Random;
