@@ -11,7 +11,15 @@ public class Consumer implements Runnable {
 
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		while(true) {
+			try {
+				String good = linkedBlockingQueue.take();
+				System.out.println(Thread.currentThread().getName() + "消费了" + good);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 

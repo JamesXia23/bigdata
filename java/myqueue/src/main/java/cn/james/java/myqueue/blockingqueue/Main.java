@@ -16,7 +16,7 @@ public class Main {
 		for (int i = 0; i < 3; i++) {
 			new Thread(new Producer(linkedBlockingQueue), "生产者" + i).start();
 		}
-		for (int j = 0; j < 5; j++) {
+		for (int j = 0; j < 8; j++) {
 			new Thread(new Consumer(linkedBlockingQueue), "消费者" + j).start();
 		}
 	}
