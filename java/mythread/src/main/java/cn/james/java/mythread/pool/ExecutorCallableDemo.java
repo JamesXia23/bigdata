@@ -7,18 +7,13 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Before;
-import org.junit.Test;
-
 public class ExecutorCallableDemo {
 	private ScheduledExecutorService newScheduledThreadPool;
 
-	@Before
 	public void init() {
 		newScheduledThreadPool = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());
 	}
 	
-	@Test
 	public void textCallable() throws Exception, ExecutionException {
 		ScheduledFuture<String> schedule = newScheduledThreadPool.schedule(new Callable<String>() {
 			public String call() throws Exception {

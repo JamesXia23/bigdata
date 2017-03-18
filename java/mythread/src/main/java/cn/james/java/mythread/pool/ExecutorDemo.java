@@ -1,14 +1,10 @@
 package cn.james.java.mythread.pool;
 
-
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import org.junit.Before;
-import org.junit.Test;
 
 public class ExecutorDemo {
 	
@@ -18,7 +14,6 @@ public class ExecutorDemo {
 	private ScheduledExecutorService newSingleThreadScheduledExecutor;
 	private ScheduledExecutorService newScheduledThreadPool;
 
-	@Before
 	public void init(){
 		newSingleThreadExecutor = Executors.newSingleThreadExecutor();	//一个线程的线程池
 		newCachedThreadPool = Executors.newCachedThreadPool();	//带缓冲的线程池,数量不定,如果线程超过60秒内没执行，那么将被终止并从池中删除
@@ -27,7 +22,7 @@ public class ExecutorDemo {
 		newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor(); 	//单线程可调度
 		newScheduledThreadPool = Executors.newScheduledThreadPool(Runtime.getRuntime().availableProcessors());	//固定大小可调度
 	}
-	@Test
+
 	public void singleThreadTest() {
 		for (int i = 0; i < 100; i++) {
 			newSingleThreadExecutor.execute(new Runnable() {
@@ -40,7 +35,7 @@ public class ExecutorDemo {
 			
 		}
 	}
-	@Test
+
 	public void cachedThreadTest() throws Exception {
 		for (int i = 0; i < 100; i++) {
 			newCachedThreadPool.execute(new Runnable(){
@@ -57,7 +52,7 @@ public class ExecutorDemo {
 			}
 		}
 	}
-	@Test
+
 	public void fixedThreadTest() throws Exception {
 		for (int i = 0; i < 100; i++) {
 			newFixedThreadPool.execute(new Runnable(){
@@ -74,7 +69,7 @@ public class ExecutorDemo {
 			}
 		}
 	}
-	@Test
+
 	public void singleThreadScheduledTest() throws InterruptedException {
 		for (int i = 0; i < 10; i++) {
 			newSingleThreadScheduledExecutor.schedule(new Runnable(){
@@ -88,7 +83,7 @@ public class ExecutorDemo {
 			Thread.sleep(new Random().nextInt(5)*1000);
 		}
 	}
-	@Test
+
 	public void threadScheduledTest() throws InterruptedException {
 		for (int i = 0; i < 10; i++) {
 			newScheduledThreadPool.schedule(new Runnable(){
